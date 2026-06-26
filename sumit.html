@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUMIT | Professional Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --container-bg: #161b22;
+            --border-color: #30363d;
+            --text-primary: #c9d1d9;
+            --text-secondary: #8b949e;
+            --accent-color: #58a6ff;
+            --success-color: #2ea44f;
+            --badge-bg: #21262d;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background-color: var(--container-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 40px;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 25px;
+            margin-bottom: 30px;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            margin-top: 5px;
+            font-weight: 500;
+        }
+
+        .location {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 5px;
+        }
+
+        section {
+            margin-bottom: 35px;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+
+        p {
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+            color: var(--text-primary);
+        }
+
+        li::before {
+            content: "•";
+            color: var(--accent-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .grid-skills {
+            display: table;
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .skill-row {
+            display: table-row;
+        }
+
+        .skill-cell {
+            display: table-cell;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            vertical-align: middle;
+        }
+
+        .skill-cell.title {
+            font-weight: 600;
+            width: 30%;
+            background-color: rgba(139, 148, 158, 0.05);
+            color: #ffffff;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background-color: var(--badge-bg);
+            border: 1px solid var(--border-color);
+            padding: 4px 10px;
+            border-radius: 2em;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+        }
+
+        .project-card {
+            background-color: rgba(240, 246, 252, 0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .project-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+
+        .project-meta {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .project-meta span {
+            background-color: rgba(88, 166, 255, 0.1);
+            color: var(--accent-color);
+            padding: 2px 8px;
+            border-radius: 3px;
+            margin-left: 8px;
+            font-weight: 500;
+        }
+
+        .links-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--badge-bg);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #30363d;
+            border-color: #8b949e;
+        }
+
+        .btn-primary {
+            background-color: var(--success-color);
+            border-color: rgba(240, 246, 252, 0.1);
+        }
+
+        .btn-primary:hover {
+            background-color: #2c974b;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            .skill-row {
+                display: block;
+                margin-bottom: 10px;
+            }
+            .skill-cell {
+                display: block;
+                width: 100% !important;
+                border: none;
+                padding: 5px 0;
+            }
+            .skill-cell.title {
+                background: none;
+                font-size: 1rem;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <div>
+                    <h1>SUMIT</h1>
+                    <div class="subtitle">Python Developer &amp; Digital Content Creator</div>
+                    <div class="location">📍 New Delhi, India</div>
+                </div>
+            </div>
+        </header>
+
+        <section id="about">
+            <h2>🚀 About Me</h2>
+            <p>I am an ambitious tech enthusiast, developer, and digital creator focused on building smart solutions and high-quality visual content. Currently, I am deeply invested in mastering <strong>Python programming</strong>, exploring <strong>version control with GitHub</strong>, and developing personalized <strong>AI-driven automation scripts</strong>.</p>
+            <p>Alongside my technical pursuits, I am a skilled <strong>video editor</strong> passionate about modern visual aesthetics and content strategy. I love combining logic with creativity to build tools that save time and media that captures attention.</p>
+        </section>
+
+        <section id="skills">
+            <h2>🛠️ Technical Skills &amp; Tools</h2>
+            <div class="grid-skills">
+                <div class="skill-row">
+                    <div class="skill-cell title">Programming &amp; Core Logic</div>
+                    <div class="skill-cell">
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Core Logic Execution</span>
+                            <span class="tag">Automation Scripts</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-row">
+                    <div class="skill-cell title">Tools &amp; Infrastructure</div>
+                    <div class="skill-cell">
+                        <div class="tags">
+                            <span class="tag">Git</span>
+                            <span class="tag">GitHub</span>
+                            <span class="tag">Version Control</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-row">
+                    <div class="skill-cell title">Creative &amp; Design</div>
+                    <div class="skill-cell">
+                        <div class="tags">
+                            <span class="tag">CapCut Mobile</span>
+                            <span class="tag">Video Editing &amp; Sequencing</span>
+                            <span class="tag">Channel Branding &amp; Graphics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>📁 Featured Projects</h2>
+            
+            <div class="project-card">
+                <div class="project-title">🤖 Personal AI Assistant &amp; Automation Hub</div>
+                <div class="project-meta">Role: Lead Developer <span>Python / Git</span></div>
+                <p>Built a custom, terminal/dashboard-based assistant designed to handle automated scripts, core system optimization, and macro tasks execution.</p>
+                <ul>
+                    <li>Implemented clean, modular Python structures for high execution speed.</li>
+                    <li>Utilized GitHub repositories to manage codebases and version documentation.</li>
+                </ul>
+            </div>
+
+            <div class="project-card">
+                <div class="project-title">🎬 Elite Cut Hub (Digital Content Hub)</div>
+                <div class="project-meta">Role: Creator &amp; Visual Designer <span>CapCut / Branding</span></div>
+                <p>Curating and managing a digital media hub focused on high-end streetwear editorial edits, technical sequencing, and trending content architecture.</p>
+                <ul>
+                    <li>Designed complete channel visual assets, logos, and high-engagement descriptive copy.</li>
+                    <li>Mastered rapid mobile video editing frameworks with advanced sequencing rules.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>📚 Academic Achievements &amp; Programs</h2>
+            <ul>
+                <li><strong>Secondary Education</strong> (Pursuing 10th Grade)</li>
+                <li><strong>Selected Program Initiative:</strong> Active participant in the <strong>Mission Buniyaad</strong> Educational Program, specializing in accelerated analytics, logical reasoning, and academic depth.</li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>🤝 Let's Connect</h2>
+            <p>I am always looking to collaborate on Python libraries, automation projects, or editorial content strategies.</p>
+            <div class="links-container">
+                <a href="#" class="btn btn-primary">🔗 Connect on LinkedIn</a>
+                <a href="#" class="btn">💻 View GitHub Profile</a>
+                <a href="mailto:your.email@example.com" class="btn">📧 Send Email</a>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
